@@ -1,10 +1,13 @@
 class Player < ApplicationRecord
-  has_many :team_players
+  has_many :picks
   has_many :teams, through: :picks
 
   def self.active_players
-    @players = self.all
-    @players.find_all { |player| player.active == 1 }
+    Player.where(active: '1')
   end
 
 end
+
+
+
+# Client.where(first_name: 'Lifo')
