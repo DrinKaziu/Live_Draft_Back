@@ -29,17 +29,14 @@ ActiveRecord::Schema.define(version: 2018_07_20_154057) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer "active"
-    t.integer "jersey"
     t.string "lname"
     t.string "fname"
     t.string "displayName"
     t.string "team"
+    t.integer "byeWeek"
     t.string "position"
-    t.string "height"
-    t.integer "weight"
-    t.string "dob"
-    t.string "college"
+    t.integer "positionRank"
+    t.integer "overallRank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

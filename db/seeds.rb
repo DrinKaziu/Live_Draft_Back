@@ -7,22 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-playersHash = RestClient.get("https://www.fantasyfootballnerd.com/service/players/json/92hydswv9tek/")
+playersHash = RestClient.get("https://www.fantasyfootballnerd.com/service/draft-rankings/json/92hydswv9tek/1/")
 
 players = JSON.parse(playersHash)
 
-players['Players'].each do |player|
+players['DraftRankings'].each do |player|
   Player.create(
-  :active => player['active'].to_i,
-  :jersey => player['jersey'].to_i,
   :lname => player['lname'],
   :fname => player['fname'],
   :displayName => player['displayName'],
   :team => player['team'],
+  :byeWeek => player['byeWeek'],
   :position => player['position'],
-  :height => player['height'],
-  :weight => player['weight'].to_i,
-  :dob => player['dob'],
-  :college => player['college']
+  :positionRank => player['positionRank'],
+  :overallRank => player['overallRank']
   )
 end
