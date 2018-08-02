@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :players, only: [:index, :show]
       resources :teams, only: [:index, :create, :show, :destroy, :update]
+      resources :picks, only: [:index, :create]
     end
   end
 end

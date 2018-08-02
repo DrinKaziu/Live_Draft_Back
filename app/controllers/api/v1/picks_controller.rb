@@ -6,10 +6,10 @@ class Api::V1::PicksController < ApplicationController
   end
 
   def create
-    @player = Player.find(params[:player_id])
-    @team = Team.find(params[:team_id])
+    @player = Player.find(params[:pick][:player_id])
+    @team = Team.find(params[:pick][:team_id])
     @pick = Pick.create(player: @player, team: @team)
-    render json: @pick 
+    render json: {player: @player, team_id: @team.id}
   end
 
   def destroy
