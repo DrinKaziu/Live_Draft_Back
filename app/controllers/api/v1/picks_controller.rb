@@ -13,9 +13,9 @@ class Api::V1::PicksController < ApplicationController
   end
 
   def destroy
-		pick_association = Pick.find_by(player_id: picks_params[:player_id], team_id: picks_params[:team_id])
-		pick_association.delete
-		render json: pick_association
+		@pick_association = Pick.find_by(player_id: picks_params[:pick][:player_id], team_id: picks_params[:pick][:team_id])
+		@pick_association.delete
+		render json: @pick_association
 	end
 
   private

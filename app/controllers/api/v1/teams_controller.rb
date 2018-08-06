@@ -6,7 +6,7 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(name: params[:team][:name])
+    @team = Team.create(name: params[:team][:name], position: params[:team][:position])
     render json: @team
   end
 
